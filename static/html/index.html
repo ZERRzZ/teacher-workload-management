@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <title>教学工作量管理系统</title>
+  <link rel="shortcut icon" href="../img/schoolbadge.png">
+  <link rel="stylesheet" href="../css/reset.css">
+  <link rel="stylesheet" href="../css/index.css">
+</head>
+
+<body>
+  <%- include("./header.html") %>
+    <main>
+      <%- include("./left-main.html") %>
+      <div class="right-main">
+        <p>欢迎登录教师工作量管理系统,
+          <a href="/messages">
+            <%= user %>
+          </a>！
+        </p>
+      </div>
+    </main>
+    <%- include("./footer.html") %>
+      <script src="../js/index.js"></script>
+</body>
+
+</html>

@@ -1,0 +1,52 @@
+.right-main #form{
+  width: 1000px;
+  height: 600px;
+  margin: 20px 0;
+  padding: 30px 50px;
+  box-shadow: 0 0 10px black;
+  border-radius: 10px;
+  display: flex;
+  flex-flow: column nowrap;
+  justify-content: flex-start;
+  align-items: flex-start;
+}
+
+.right-main #form h2 {
+  margin: 15px 0;
+}
+
+.right-main #form table {
+  margin: 10px 0 0 0;
+  border-collapse: collapse;
+}
+
+.right-main #form table tr {
+  height: 40px;
+  border-bottom: 1px solid #aaaaaa;
+}
+
+.right-main #form table thead tr th {
+  width: 120px;
+  background: #ccccff;
+  text-align: left;
+  padding-left: 20px;
+}
+
+.right-main #form table tbody tr td {
+  background: #eeeeff;
+  padding-left: 20px;
+}
+
+.right-main #form table input[type="button"] {
+  margin: 0 10px 0 0;
+  padding: 5px;
+  color: #8b0000;
+  background: #eeeeff;
+  box-shadow: 0 0 2px gray;
+  border-bottom: 1px solid grey;
+  cursor: pointer;
+}
+
+.right-main #form table input[type="button"]:hover {
+  background: white;
+}

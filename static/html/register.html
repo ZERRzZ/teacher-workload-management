@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <title>教学工作量管理系统</title>
+  <link rel="shortcut icon" href="../img/schoolbadge.png">
+  <link rel="stylesheet" href="../css/reset.css">
+  <link rel="stylesheet" href="../css/register.css">
+</head>
+
+<body>
+  <header>
+    <div class="left-nav">
+      <a href="/registers">
+        <img src="../img/schoolname.png" alt="华北理工大学" width="240px" height="60px">
+      </a>
+    </div>
+  </header>
+  <main>
+    <form id="register">
+      <p>用户：<input type="text" name="user" autocomplete="off"></p>
+      <p>密码：<input type="password" name="password"></p>
+      <p><input type="button" value="提交"></p>
+      <p>已有帐号？返回<a href="/logins">登录</a>页面！</p>
+    </form>
+  </main>
+  <%- include("./footer.html") %>
+  <script src="../js/register.js"></script>
+</body>
+
+</html>

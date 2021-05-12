@@ -1,0 +1,133 @@
+.form {
+  height: 600px;
+  width: 1000px;
+  margin: 20px 0;
+  padding: 30px 50px;
+  box-shadow: 0 0 10px black;
+  border-radius: 10px;
+  display: flex;
+  flex-flow: column nowrap;
+  justify-content: flex-start;
+  align-items: flex-start;
+}
+
+.form h2 {
+  margin: 15px 0;
+}
+
+.form table {
+  margin: 10px 0 0 0;
+  border-collapse: collapse;
+}
+
+.form table tr {
+  height: 40px;
+  border-bottom: 1px solid #aaaaaa;
+}
+
+.form table thead tr th {
+  background: #ccccff;
+}
+
+.form table tbody tr td {
+  width: 150px;
+  text-align: center;
+  background: #eeeeff;
+}
+
+.form table input[type="button"] {
+  margin: 0 0 0 5px;
+  padding: 5px;
+  color: #8b0000;
+  background: #eeeeff;
+  box-shadow: 0 0 2px gray;
+  border-bottom: 1px solid grey;
+  cursor: pointer;
+}
+
+.form table input[type="button"]:hover {
+  background: white;
+}
+
+.add,
+.save {
+  width: 150px;
+  height: 50px;
+  background: #ccccff;
+  border-radius: 10px;
+  cursor: pointer;
+  opacity: .6;
+}
+
+.add:hover,
+.save:hover {
+  opacity: 1;
+}
+
+.form p {
+  margin: 15px 0 0 0;
+}
+
+
+.cloak {
+  width: 100%; 
+  height: 100%;
+  position: fixed;
+  left: 0;
+  top: 0;
+  background: rgba(0,0,0,.6);
+  display: none;
+}
+.newtimetable {
+  width: 400px;
+  height: 300px;
+  /* border-radius: 5px; */
+  box-shadow: 0 0 10px gray;
+  transform: translate(-50%, -50%);
+  position: fixed;
+  top: 50%;
+  left: 50%;
+}
+.newtimetable p {
+  margin: 15px 0 0 0;
+}
+.newtimetable input[type='text'] {
+  border-bottom: 1px solid black;
+}
+.newtimetable #submit {
+  width: 50px;
+  height: 30px;
+  background: #ccccff;
+  border-radius: 5px;
+  cursor: pointer;
+  opacity: .6;
+}
+.newtimetable #submit:hover {
+  opacity: 1;
+}
+.newtimetable .quit {
+  width: 50px;
+  height: 30px;
+  background-color: lightcoral;
+  border-radius: 5px;
+  cursor: pointer;
+}
+.newtimetable .quit:hover {
+  opacity: .8;
+}
+.content {
+  width: 100%;
+  height: 100%;
+  background-color: white;
+  border-radius: 5px;
+  display: flex;
+  flex-flow: column nowrap;
+  justify-content: center;
+  align-items: center;
+  animation: rotate1 .3s;
+}
+@keyframes rotate1 {
+  0% { transform: scale(0);}
+  50% { transform: scale(1.1);}
+  100% { transform: scale(1);}
+}

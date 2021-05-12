@@ -1,0 +1,75 @@
+header {
+  height: 100px;
+  padding: 0 50px;
+  background-color:#fff;
+  box-shadow: 0 0 10px black;
+  display: flex;
+  flex-flow: row nowrap;
+  justify-content: space-between;
+  align-items: center;
+}
+
+main {
+  min-height: calc(100% - 170px);
+  display: flex;
+  flex-flow: row nowrap;
+  justify-content: center;
+  align-items: center;
+}
+main * {
+  transition: .3s;
+}
+
+main form {
+  width: 400px;
+  height: 300px;
+  margin: 50px 0;
+  padding: 50px 0 0 100px;
+  box-shadow: 0 0 10px black;
+  border-radius: 10px;
+  display: flex;
+  flex-flow: column nowrap;
+  justify-content: flex-start;
+  align-items: flex-start;
+}
+
+main form p {
+  margin: 20px 0;
+}
+
+main form input[name="user"],
+main form input[name="password"] {
+  width: 200px;
+  background: inherit;
+  border-bottom: 1px solid gray;
+}
+
+main form input[value="提交"] {
+  width: 90px;
+  height: 40px;
+  background-color:  #ecedf0;
+  border-radius: 10px;
+  cursor: pointer;
+}
+
+main form input[value="提交"]:hover {
+  color: white;
+  background-color: gray;
+}
+
+footer {
+  height: 70px;
+  background-color: rgb(139, 0, 0);
+  color: #ecedf0;
+  box-shadow: 0 0 10px grey;
+  display: flex;
+  flex-flow: row nowrap;
+  justify-content: center;
+  align-items: center;
+}
+
+footer .foot {
+  display: flex;
+  flex-flow: column nowrap;
+  align-items: center;
+}

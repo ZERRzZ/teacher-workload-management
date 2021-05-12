@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <title>教学工作量管理系统</title>
+  <link rel="shortcut icon" href="../img/schoolbadge.png">
+  <link rel="stylesheet" href="../css/reset.css">
+  <link rel="stylesheet" href="../css/index.css">
+  <link rel="stylesheet" href="../css/showTimetable.css">
+</head>
+
+<body>
+  <%- include("./header.html") %>
+    <main>
+      <%- include("./left-main.html") %>
+        <div class="right-main">
+          <div class="cloak" id='cloak'>
+            <div class="newtimetable" id='newtimetable'>
+              <form class="content" id="content">
+                <p>课程名称：<input type="text" name="name" value="<%= name %>"></p>
+                <p>课程类别：<input type="text" name="type" value="<%= type %>"></p>
+                <p>选课人数：<input type="text" name="number" value="<%= number %>"></p>
+                <p>课程学时：<input type="text" name="time" value="<%= time %>"></p>
+                <p><input type="button" value="提交" id="submit"></p>
+                <p><input type="button" value="退出" class='quit' id='quit'></p>
+              </form>
+            </div>
+          </div>
+        </div>
+    </main>
+    <%- include("./footer.html") %>
+    <script src="../js/showtimetable.js"></script>
+</body>
+
+</html>

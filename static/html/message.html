@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <title>教学工作量管理系统</title>
+  <link rel="shortcut icon" href="../img/schoolbadge.png">
+  <link rel="stylesheet" href="../css/reset.css">
+  <link rel="stylesheet" href="../css/index.css">
+  <link rel="stylesheet" href="../css/message.css">
+</head>
+
+<body>
+  <%- include("./header.html") %>
+  <main>
+    <%- include("./left-main.html") %>
+    <div class="right-main">
+      <form id="message">
+        <h3>教师信息：</h3>
+        <p>姓名：<%- user %></p>
+        <p><span>性别：</span>
+          <input type="radio" name="gender" value="男" id="man"
+            <% if(gender==='男'){ %>
+              <%= 'checked' %>
+            <% } %>
+            ><label for="man">男</label>
+          <input type="radio" name="gender" value="女" id="woman"
+            <% if(gender==='女'){ %>
+              <%= 'checked' %>
+            <% } %>
+          ><label for="woman">女</label>
+        </p>
+        <p>联系电话：<input type="tel" name="tel" id="phone" value="<%- tel %>"></p>
+        <p><input type="button" value="保存" id="save"></p>
+      </form>
+    </div>
+  </main>
+  <%- include("./footer.html") %>
+  <script src="../js/message.js"></script>
+</body>
+
+</html>
