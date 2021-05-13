@@ -6,7 +6,12 @@ add.addEventListener('click', () => {
 
   let quit = document.getElementById('quit')
   quit.addEventListener('click', () => {
-    cloak.style.display = 'none'
+    setTimeout(() => {
+      content.classList.remove("rotate-out")
+      cloak.style.display = 'none'
+    }, 300)
+    let content = document.getElementById('content')
+    content.classList.add("rotate-out")
   })
 
   let submit = document.getElementById('submit')
@@ -27,7 +32,7 @@ add.addEventListener('click', () => {
 let mods = document.querySelectorAll('input[value="修改"]')
 mods.forEach((v) => {
   v.addEventListener('click', (e) => {
-    let name = e.target.parentNode.previousElementSibling.previousElementSibling.previousElementSibling.previousElementSibling.innerText
+    let name = e.target.parentNode.previousElementSibling.previousElementSibling.previousElementSibling.previousElementSibling.previousElementSibling.innerText
     location = '/timetables/' + name
   })
 })
@@ -35,10 +40,9 @@ mods.forEach((v) => {
 let dels = document.querySelectorAll('input[value="删除"]')
 dels.forEach((v) => {
   v.addEventListener('click', (e) => {
-    console.log("" === null);
     if (prompt("确认删除？") === null) return
 
-    let name = e.target.parentNode.previousElementSibling.previousElementSibling.previousElementSibling.previousElementSibling.innerText
+    let name = e.target.parentNode.previousElementSibling.previousElementSibling.previousElementSibling.previousElementSibling.previousElementSibling.previousElementSibling.innerText
     const ajax = new XMLHttpRequest()
     ajax.open('delete', '/timetables/' + name, true)
     ajax.onload = () => {

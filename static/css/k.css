@@ -36,17 +36,3 @@
   background: #eeeeff;
   padding-left: 20px;
 }
-
-#form table input[type="button"] {
-  margin: 0 10px 0 0;
-  padding: 5px;
-  color: #8b0000;
-  background: #eeeeff;
-  box-shadow: 0 0 2px gray;
-  border-bottom: 1px solid grey;
-  cursor: pointer;
-}
-
-#form table input[type="button"]:hover {
-  background: white;
-}

@@ -15,24 +15,29 @@
     <%- include("./left-main.html") %>
     <div class="right-main">
       <form class='form'>
+        <h2>课程表页面</h2>
         <h2>你好, <%= user %></h3>
         <table>
           <thead>
             <tr>
-              <th>课程名称</th>
               <th>课程类别</th>
+              <th>课程名称</th>
+              <th>班级数量</th>
               <th>选课人数</th>
               <th>课程学时</th>
+              <th>备注</th>
               <th>操作</th>
             </tr>
           </thead>
           <tbody>
             <% data.forEach((v) => { %>
               <tr>  
-                <td><%= v.name %></td>
                 <td><%= v.type %></td>
+                <td><%= v.name %></td>
+                <td><%= v.class %></td>
                 <td><%= v.number %></td>
                 <td><%= v.time %></td>
+                <td><%= v.msg %></td>
                 <td><input type="button" value="修改"><input type="button" value="删除"></td>
               </tr>
             <% }) %>

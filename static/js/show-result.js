@@ -1,26 +1,27 @@
+let submit = document.getElementById("submit")
+let quit = document.getElementById("quit")
+
 onload = function() {
-  let cloak = this.document.getElementById('cloak')
-  cloak.style.display = "block"
+  let cloak = this.document.getElementById("cloak")
+  cloak.style.display = 'block'
 }
 
-let quit = document.getElementById('quit')
-quit.addEventListener('click', () => {
+quit.addEventListener("click", () => {
   setTimeout(() => {
-    location = '/timetables/'
-  }, 300)
+    location = "/results"
+  })
   let content = document.getElementById('content')
-  content.classList.add('rotate-out')
+  content.classList.add("rotate-out")
 })
 
-let submit = document.getElementById('submit')
 submit.addEventListener('click', () => {
   const content = new FormData(document.getElementById('content'))
   const ajax = new XMLHttpRequest()
-  ajax.open('put', '/timetables/', true)
+  ajax.open('put', '/results', true)
   ajax.onload = () => {
     if (ajax.status == 200) {
       alert(ajax.responseText)
-      location = '/timetables'
+      location = '/results'
     }
   }
   ajax.send(content)

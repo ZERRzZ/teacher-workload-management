@@ -15,25 +15,29 @@
   <main>
     <%- include("./left-main.html") %>
     <div class="right-main">
-      <form>
-        <h2>你好！XXX</h2>
+      <form id="form">
+        <h2>你好！<%- user %></h2>
         <table>
           <thead>
             <tr>
               <th>工作量类别</th>
-              <th>课程类别</th>
-              <th>理论学时</th>
-              <th>实验学时</th>
-              <th>选课人数</th>
+              <th>工作量名称</th>
+              <th>班级数量</th>
+              <th>工作量学时</th>
+              <th>工作量人数</th>
+              <th>合班系数</th>
+              <th>备注</th>
             </tr>
           </thead>
           <tbody>
             <tr>
-              <td><input type="text" name="" id=""></td>
-              <td><input type="text" name="courseType" id="courseType"></td>
-              <td><input type="text" name="theoHours" id="theoHours"></td>
-              <td><input type="text" name="experHours" id="experHours"></td>
-              <td><input type="text" name="studentNum" id="studentNum"></td>
+              <td><input type="text" name="type"></td>
+              <td><input type="text" name="cname"></td>
+              <td><input type="text" name="cclass"></td>
+              <td><input type="text" name="time"></td>
+              <td><input type="text" name="number"></td>
+              <td><input type="text" name="k"></td>
+              <td><input type="text" name="msg"></td>
             </tr>
           </tbody>
         </table>
@@ -49,7 +53,7 @@
     </div>
   </main>
   <%- include("./footer.html") %>
-  <script></script>
+  <script src="../js/workload.js"></script>
 </body>
 
 </html>

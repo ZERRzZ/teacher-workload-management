@@ -35,7 +35,7 @@
 
 .right-main form table tbody tr td,
 .right-main form table tbody tr td input {
-  width: 150px;
+  width: 100px;
   background: #eeeeff;
   padding-left: 10px;
   outline-width: 10px;
