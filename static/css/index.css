@@ -9,21 +9,21 @@ header {
   align-items: center;
 }
 
-header .right-nav {
+.right-nav {
   position: relative;
 }
 
-header .right-nav img {
+.right-nav img {
   padding: 0 0 5px 0;
   border-bottom: 2px solid black;
   opacity: .3;
 }
 
-header .right-nav img:hover {
+.right-nav img:hover {
   opacity: 1;
 }
 
-header .right-nav .logout {
+.right-nav .logout {
   width: 100px;
   padding: 10px 0 0 0;
   background-color: white;
@@ -35,12 +35,12 @@ header .right-nav .logout {
   left: -30px;
 }
 
-header .right-nav .logout li {
+.right-nav .logout li {
   text-align: center;
   margin: 10px 0;
 }
 
-header .right-nav:hover .logout {
+.right-nav:hover .logout {
   visibility: visible;
   transform: translate(0, 5px);
 }
@@ -51,7 +51,7 @@ main {
   flex-flow: row nowrap;
 }
 
-main .left-main {
+.left-main {
   background-color: #ecedf0;
   flex: 0 1 200px;
   display: flex;
@@ -60,7 +60,7 @@ main .left-main {
   align-items: center;
 }
 
-main .right-main {
+.right-main {
   flex: 0 1 calc(100% - 200px);
   display: flex;
   flex-flow: row nowrap;
@@ -79,7 +79,7 @@ footer {
   align-items: center;
 }
 
-footer .foot {
+.foot {
   display: flex;
   flex-flow: column nowrap;
   align-items: center;
