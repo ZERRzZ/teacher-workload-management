@@ -3,12 +3,12 @@ const ejs = require("ejs")
 const path = require("path")
 const cookieParser = require("cookie-parser")
 const fileupload = require("express-fileupload")
-const router = require("./router")
+const router = require("./lib/router")
 
 const app = express()
 
 // 静态资源
-app.use(express.static(path.join(__dirname, "..", "static")))
+app.use(express.static(path.join(__dirname, "static")))
 
 // 中间件的启用
 // 当请求数据是表单数据时，解析请求体中的数据
@@ -22,7 +22,7 @@ app.use(fileupload())
 // 设置 html 后缀文件引用模板引擎
 app.set("view engine", "html")
 // 将默认文件夹设置成自定义文件夹
-app.set("views", path.join(__dirname, '..', 'static', 'html'))
+app.set("views", path.join(__dirname, 'static', 'html'))
 // 将后缀名为 html 的文件用 ejs.renderFile 渲染
 app.engine('html', ejs.renderFile)
 
