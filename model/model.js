@@ -9,7 +9,7 @@ module.exports = class Model extends Link {
       model.updateOne(filter, update, (err, data) => {
         if (err) reject(err)
         else resolve(data)
-        this.disconnect()
+        this.disconnect() // promise 不解决根本的异步问题
       })
     })
   }

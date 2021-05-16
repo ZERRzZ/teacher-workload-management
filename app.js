@@ -7,6 +7,8 @@ const fileupload = require("express-fileupload")
 // const router = require("./lib/router")
 const indexRouter = require("./router/index")
 const teacherRouter = require("./router/teacher")
+const kRouter = require("./router/k")
+const loginRouter = require("./router/login")
 
 const app = express()
 
@@ -35,5 +37,7 @@ app.use(fileupload())
 // 调用各个子路由
 app.use(indexRouter)
 app.use(teacherRouter)
+app.use(kRouter)
+app.use(loginRouter)
 
 app.listen(8888, () => console.log("start success! http://localhost:8888"))
