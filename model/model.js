@@ -9,19 +9,21 @@ module.exports = class Model extends Link {
       model.updateOne(filter, update, (err, data) => {
         if (err) reject(err)
         else resolve(data)
+        this.disconnect()
       })
-      this.disconnect()
     })
   }
 
   // 查询符合条件所有项
-  static find(model, filter, callback) {
-    this.connection()
-    model.find(filter, (err, data) => {
-      if (err) callback(err)
-      else callback(data)
+  static find(model, filter) {
+    return new Promise((resolve, reject) => {
+      this.connection()
+      model.find(filter, (err, data) => {
+        if (err) reject(err)
+        else resolve(data)
+        this.disconnect()
+      })
     })
-    this.disconnect()
   }
 
   // 删除符合条件的一项
@@ -31,8 +33,8 @@ module.exports = class Model extends Link {
       model.deleteOne(filter, (err, data) => {
         if (err) reject(err)
         else resolve(data)
+        this.disconnect()
       })
-      this.disconnect()
     })
   }
 
@@ -43,8 +45,8 @@ module.exports = class Model extends Link {
       new model(insert).save((err, data) => {
         if (err) reject(err)
         else resolve(data)
+        this.disconnect()
       })
-      this.disconnect()
     })
   }
   
