@@ -3,13 +3,13 @@ let user = document.querySelector('[name="user"]')
 let password = document.querySelector('[name="password"]')
 
 submit.addEventListener('click', () => {
-  let params = `?user=${user.value}&password=${password.value}`
+  let params = `user=${user.value}&pass=${password.value}`
   const ajax = new XMLHttpRequest()
-  ajax.open('get', '/logons' + params, true)
+  ajax.open('post', `/registers?${params}`, true)
   ajax.onload = () => {
     if (ajax.status == 200) {
       alert(ajax.responseText)
-      if (ajax.responseText === '注册成功!') {
+      if (ajax.responseText == '注册成功') {
         location = "/logins"
       }
     }

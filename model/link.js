@@ -9,16 +9,16 @@ module.exports = class Link {
       pass: 'lMQJe1YlzQ40AIty',
       useUnifiedTopology: true, // 处理警告
       useNewUrlParser: true  // 处理警告
-    })
-    .then(() => console.log("mongoDB connected!"))
-    .catch((err) => console.log(err))
+    }).then(() => {
+      console.log("mongoDB connected!")
+    }).catch((err) => console.log(err))
   }
 
   // 关闭数据库
   static disconnect() {
-    mongoose.disconnect()
-    .then(() => console.log("mongoDB disconnected!"))
-    .catch((err) => console.log(err))
+    // mongoose.disconnect().then(() => {
+    //   console.log("mongoDB disconnected!")
+    // }).catch((err) => console.log(err))
   }
 
 }

@@ -1,7 +1,7 @@
 const Link = require("./link")
 
 module.exports = class Model extends Link {
-  
+
   // 更新符合条件的一项
   static updateOne(model, filter, update) {
     return new Promise((resolve, reject) => {

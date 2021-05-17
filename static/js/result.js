@@ -7,7 +7,7 @@ dels.forEach((v) => {
 
     let name = e.target.parentNode.previousElementSibling.previousElementSibling.previousElementSibling.previousElementSibling.previousElementSibling.previousElementSibling.previousElementSibling.innerText
     const ajax = new XMLHttpRequest()
-    ajax.open('delete', '/results/' + name, true)
+    ajax.open('delete', `/results/${name}`, true)
     ajax.onload = function() {
       if (ajax.status == 200) {
         alert(ajax.responseText)

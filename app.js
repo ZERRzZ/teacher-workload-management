@@ -4,11 +4,7 @@ const path = require("path")
 const cookieParser = require("cookie-parser")
 const fileupload = require("express-fileupload")
 
-// const router = require("./lib/router")
-const indexRouter = require("./router/index")
-const teacherRouter = require("./router/teacher")
-const kRouter = require("./router/k")
-const loginRouter = require("./router/login")
+const {loginRouter, registerRouter, indexRouter, teacherRouter, timetableRouter, kRouter, workloadRouter, resultRouter} = require('./router/router')
 
 const app = express()
 
@@ -31,13 +27,7 @@ app.use(cookieParser())
 // 解析请求头是 multipart/form-data 即文件上传时的请求体参数
 app.use(fileupload())
 
-// 路由
-// app.use(router)
-
 // 调用各个子路由
-app.use(indexRouter)
-app.use(teacherRouter)
-app.use(kRouter)
-app.use(loginRouter)
+app.use([loginRouter, registerRouter, indexRouter, teacherRouter, timetableRouter, kRouter, workloadRouter, resultRouter])
 
 app.listen(8888, () => console.log("start success! http://localhost:8888"))
