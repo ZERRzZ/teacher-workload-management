@@ -1,0 +1,81 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <title>教学工作量管理系统</title>
+  <link rel="shortcut icon" href="../img/schoolbadge.png">
+  <link rel="stylesheet" href="../css/reset.css">
+  <link rel="stylesheet" href="../css/index.css">
+  <link rel="stylesheet" href="../css/k.css">
+  <style>
+    .btn {
+      padding: 5px;
+      border-radius: 5px;
+      box-shadow: 0 0 5px #bbb;
+      border: 1px solid #bbb;
+      cursor: pointer;
+      transition: all .5s;
+    }
+    .btn:hover {
+      box-shadow: none;
+      transform: translate(2px, 2px);
+    }
+    .add-k {
+      margin-top: 20px;
+      padding: 10px 5px;
+      background: lightblue;
+      border-radius: 5px;
+      border: 1px solid #bbb;
+      cursor: pointer;
+      transition: all .5s;
+    }
+    .add-k:hover {
+      background: #eeeeff;
+    }
+  </style>
+</head>
+
+<body>
+  <%- include("./header.html") %>
+  <main>
+    <div class="right-main">
+      <div id="form">
+        <table>
+          <thead>
+            <tr>
+              <th>课程类别</th>
+              <th>班级数量</th>
+              <th>合班系数</th>
+              <th>操作</th>
+            </tr>
+          </thead>
+          <tbody>
+            <% data.forEach((v) => { %>
+            <tr>
+              <td><%= v.type %></td>
+              <td><%= v.class %></td>
+              <td><%= v.k %></td>
+              <td>
+                <input type="button" value="修改" class="btn">
+                <input type="button" value="删除" class="btn">
+              </td>
+            </tr>
+            <% }) %>
+          </tbody>
+        </table>
+        <input type="button" value="添加合班系数" class="add-k">
+        <input type="button" value="返回" id='back' class="add-k">
+      </div>
+    </div>
+  </main>
+  <%- include("./footer.html") %>
+  <script>
+    const back = document.getElementById('back')
+    back.addEventListener('click', () => {
+      window.history.back()
+    })
+  </script>
+</body>
+
+</html>

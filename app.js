@@ -4,7 +4,7 @@ const path = require("path")
 const cookieParser = require("cookie-parser")
 const fileupload = require("express-fileupload")
 
-const {loginRouter, registerRouter, indexRouter, teacherRouter, timetableRouter, kRouter, workloadRouter, resultRouter} = require('./router/router')
+const {loginRouter, registerRouter, indexRouter, teacherRouter, timetableRouter, kRouter, workloadRouter, resultRouter, rootRouter} = require('./router/router')
 
 const app = express()
 
@@ -28,6 +28,6 @@ app.use(cookieParser())
 app.use(fileupload())
 
 // 调用各个子路由
-app.use([loginRouter, registerRouter, indexRouter, teacherRouter, timetableRouter, kRouter, workloadRouter, resultRouter])
+app.use([loginRouter, registerRouter, indexRouter, teacherRouter, timetableRouter, kRouter, workloadRouter, resultRouter, rootRouter])
 
 app.listen(8888, () => console.log("start success! http://localhost:8888"))

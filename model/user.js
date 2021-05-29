@@ -5,6 +5,6 @@ const userSchma = new mongoose.Schema({
   pass: String
 })
 
-const User = mongoose.model('users', userSchma)
+const User = mongoose.model('roots', userSchma)
 
 module.exports = User

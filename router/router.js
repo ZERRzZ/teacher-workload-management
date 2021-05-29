@@ -7,6 +7,7 @@ module.exports = {
   kRouter: require('./k'),
   workloadRouter: require('./workload'),
   resultRouter: require('./result'),
-  registerRouter: require('./register')
+  registerRouter: require('./register'),
+  rootRouter: require('./roots')
 
 }
