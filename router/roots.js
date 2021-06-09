@@ -24,4 +24,8 @@ rootRouter.get('/roots/:type', [root.findOne], (req, res) => {
 
 rootRouter.put('/roots/ks', [root.updateOne])
 
+rootRouter.get('/rootsworkloads/:name',[root.findAllWorkload], (req, res) => {
+  res.render('show-result.html', { data: req.workloads[0] })
+})
+
 module.exports = rootRouter

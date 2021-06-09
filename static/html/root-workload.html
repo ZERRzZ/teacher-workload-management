@@ -12,6 +12,7 @@
     #form {
       width: 1200px;
     }
+
     .add-k {
       margin-top: 20px;
       padding: 10px 5px;
@@ -21,6 +22,7 @@
       cursor: pointer;
       transition: all .5s;
     }
+
     .add-k:hover {
       background: #eeeeff;
     }
@@ -29,66 +31,110 @@
 
 <body>
   <%- include("./header.html") %>
-  <main>
-    <div class="right-main">
-      <div id="form">
-        <h2>工作量汇总</h2>
-        <table>
-          <thead>
-            <tr>
-              <th>教师姓名</th>
-              <th>工作量类别</th>
-              <th>工作量名称</th>
-              <th>班级数量</th>
-              <th>工作量学时</th>
-              <th>工作量人数</th>
-              <th>合班系数</th>
-              <th>工作量</th>
-              <th>备注</th>
-              <th>操作</th>
-            </tr>
-          </thead>
-          <tbody>
-            <% data.forEach((v) => { %>
-            <tr>
-              <td><%- v.user %></td>
-              <td><%- v.type %></td>
-              <td><%- v.name %></td>
-              <td><%- v.class %></td>
-              <td><%- v.time %></td>
-              <td><%- v.number %></td>
-              <td><%- v.k %></td>
-              <td><%- v.workload %></td>
-              <td><%- v.msg %></td>
-              <td>
-                <input type="button" value="修改">
-                <input type="button" value="删除">
-              </td>
-            </tr>
-            <% }) %>
-          </tbody>
-        </table>
-        <input type="button" value="添加教师工作量" class="add-k">
-        <input type="button" value="返回" id='back' class="add-k">
-        <h2>计算公式:</h2>
-        <div class="gongshi">
-          <p>理论课: 完成工作量 ＝ 实际学时数 × 合班系数</p>
-          <p>课程设计: 完成工作量＝（计划周数×15）× 合班系数</p>
-          <p>市外实习: 完成工作量＝（计划天数×8）×合班系数</p>
-          <p>市内实习: 完成工作量＝（计划天数×4）×合班系数</p>
-          <p>校内实习: 完成工作量＝（计划天数×3）×合班系数</p>
-          <p>毕业设计: 完成工作量＝指导学生数×24</p>
+    <main>
+      <div class="right-main">
+        <div id="form">
+          <h2>工作量汇总</h2>
+          <table>
+            <thead>
+              <tr>
+                <th>教师姓名</th>
+                <th>工作量类别</th>
+                <th>工作量名称</th>
+                <th>班级数量</th>
+                <th>工作量学时</th>
+                <th>工作量人数</th>
+                <th>合班系数</th>
+                <th>工作量</th>
+                <th>备注</th>
+                <th>操作</th>
+              </tr>
+            </thead>
+            <tbody>
+              <% data.forEach((v)=> { %>
+                <tr>
+                  <td>
+                    <%- v.user %>
+                  </td>
+                  <td>
+                    <%- v.type %>
+                  </td>
+                  <td>
+                    <%- v.name %>
+                  </td>
+                  <td>
+                    <%- v.class %>
+                  </td>
+                  <td>
+                    <%- v.time %>
+                  </td>
+                  <td>
+                    <%- v.number %>
+                  </td>
+                  <td>
+                    <%- v.k %>
+                  </td>
+                  <td>
+                    <%- v.workload %>
+                  </td>
+                  <td>
+                    <%- v.msg %>
+                  </td>
+                  <td>
+                    <input type="button" value="修改">
+                    <input type="button" value="删除">
+                  </td>
+                </tr>
+                <% }) %>
+            </tbody>
+          </table>
+          <input type="button" value="添加教师工作量" class="add-k">
+          <input type="button" value="返回" id='back' class="add-k">
+          <h2>计算公式:</h2>
+          <div class="gongshi">
+            <p>理论课: 完成工作量 ＝ 实际学时数 × 合班系数</p>
+            <p>课程设计: 完成工作量＝（计划周数×15）× 合班系数</p>
+            <p>市外实习: 完成工作量＝（计划天数×8）×合班系数</p>
+            <p>市内实习: 完成工作量＝（计划天数×4）×合班系数</p>
+            <p>校内实习: 完成工作量＝（计划天数×3）×合班系数</p>
+            <p>毕业设计: 完成工作量＝指导学生数×24</p>
+          </div>
         </div>
       </div>
-    </div>
-  </main>
-  <%- include("./footer.html") %>
-  <script>
-    const back = document.getElementById('back')
-    back.addEventListener('click', () => {
-      window.history.back()
-    })
-  </script>
+    </main>
+    <%- include("./footer.html") %>
+      <script>
+        const back = document.getElementById('back')
+        back.addEventListener('click', () => {
+          window.history.back()
+        })
+
+        const mods = document.querySelectorAll('input[value="修改"]')
+        mods.forEach((v) => {
+          v.addEventListener('click', (e) => {
+            const name = e.target.parentNode.previousElementSibling.previousElementSibling.previousElementSibling.previousElementSibling.previousElementSibling.previousElementSibling.previousElementSibling.innerText
+            window.location = `/rootsworkloads/${name}`
+          })
+        })
+
+        let dels = document.querySelectorAll('input[value="删除"]')
+        dels.forEach((v) => {
+          v.addEventListener('click', (e) => {
+            if (prompt("确认删除？") === null) return
+
+            const name = e.target.parentNode.previousElementSibling.previousElementSibling.previousElementSibling.previousElementSibling.previousElementSibling.previousElementSibling.previousElementSibling.innerText
+            const ajax = new XMLHttpRequest()
+            ajax.open('delete', '/roots/workloads/' + type, true)
+            ajax.onload = () => {
+              if (ajax.status == 200) {
+                alert(ajax.responseText)
+                location = '/roots/workloads'
+              }
+            }
+            ajax.send()
+          })
+        })
+      </script>
 </body>
 
 </html>
