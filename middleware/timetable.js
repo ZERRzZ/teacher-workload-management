@@ -8,10 +8,7 @@ module.exports = {
     let user = req.cookies.user
     Model.find(Timetable, {user}).then((data) => {
       req.timetables = data
-      console.log(`课程表信息：${data}`)
-      next()
-    }).catch((err) => {
-      console.log(err)
+      // console.log(`课程表信息：${data}`)
       next()
     })
   },
@@ -49,7 +46,7 @@ module.exports = {
   update(req, res, next) {
     let {name, type, cclass, number, time, msg} = req.body
     let user = req.cookies.user
-    Model.updateOne(Timetable, {user, name}, {type, class: cclass, number, time, msg}).then((data) => {
+    Model.updateOne(Timetable, {user, name }, {type, class: cclass, number, time, msg}).then((data) => {
       console.log(`更新的课程表：${data}`)
       res.send('添加成功')
       next()

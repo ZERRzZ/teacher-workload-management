@@ -21,38 +21,46 @@ module.exports = {
   // 根据课程表的 name 和 type 查询 k, 并插入或更新工作量
   insertByTimetable(req, res, next) {
     let user = req.cookies.user
-    req.timetables.forEach((v) => {
-      let cclass = v.class
+    req.timetables.forEach( v => {
       let {type, name, number, time, msg} = v
-      Model.find(K, {class: cclass, type}).then((data) => {
-        console.log(`查到的合班系数：${data}`);
-        req.k = data[0].k
+      console.log(type, name, number, time, v.class);
+      Model.find(K, {type}).then((data) => {
+        console.log(data[0]);
+        let k = Number(data[0].origin) * ( 1 + Number(data[0].aging) * Number(v.class))
+        console.log(k)
         let workload 
         switch (type) {
           case '理论课':
-            workload = Number(time) * Number(req.k)
+            workload = Number(time) * Number(k)
             break;
           case '课程设计':
-            workload = Number(time) * Number(req.k)
+            workload = Number(time) * 15 * Number(k)
             break;
-          case '实习':
-            workload = Number(number) * Number(req.k)
+          case '市外实习':
+            workload = Number(time) * 8 * Number(k)
+            break;
+          case '市内实习':
+            workload = Number(time) * 4 * Number(k)
+            break;
+          case '校内实习':
+            workload = Number(time) * 3 * Number(k)
             break;
           case '毕业设计':
-            workload = Number(number) * 20
+            workload = Number(number) * Number(k)
             break;
           default: res.send('课程类型不符合')
             break;
         }
+        workload = Number(workload.toFixed(2))
+        console.log(workload)
         Model.find(Workload, {user, name, type}).then(data => {
           if(data.length == 0) {
-            Model.insert(Workload, {user, type, name, class: cclass, time, number, k: req.k, workload, msg}).then((data) => {
-              console.log(`插入的工作量是：${data}`);
+            Model.insert(Workload, {user, type, name, class: v.class, time, number, k, workload, msg}).then((data) => {
+              console.log(`插入的工作量是`);
+              console.log(data)
             }).catch(err => console.log(err))
           } else {
-            Model.updateOne(Workload, {class: cclass, time, number, k: req.k, workload, msg}).then(data => {
-              console.log(`更新的工作量是：${data}`);
-            }).catch(err => console.log(err))
+            Model.updateOne(Workload, { user, type, name }, {class: v.class, time, number, k, workload, msg})
           }
         })
       }).catch((err) => console.log(err))

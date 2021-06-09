@@ -21,16 +21,16 @@
           <thead>
             <tr>
               <th>课程类别</th>
-              <th>班级数量</th>
-              <th>合班系数</th>
+              <th>递增值</th>
+              <th>基础值</th>
             </tr>
           </thead>
           <tbody>
             <% data.forEach((v) => { %>
             <tr>
               <td><%= v.type %></td>
-              <td><%= v.class %></td>
-              <td><%= v.k %></td>
+              <td><%= v.aging %></td>
+              <td><%= v.origin %></td>
             </tr>
             <% }) %>
           </tbody>

@@ -1,6 +1,6 @@
 #form{
-  width: 1000px;
-  height: 600px;
+  width: 1200px;
+  /* height: 600px; */
   margin: 20px 0;
   padding: 30px 50px;
   box-shadow: 0 0 10px black;
@@ -49,4 +49,10 @@
 
 #form table input[type="button"]:hover {
   background: white;
+}
+
+.gongshi {
+  /* display: flex;
+  flex-flow: row wrap;
+  justify-content: space-between; */
 }

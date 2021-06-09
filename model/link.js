@@ -21,7 +21,8 @@ module.exports = class Link {
       authSource: 'admin',
       useUnifiedTopology: true, // 处理警告
       useNewUrlParser: true  // 处理警告
-    }).then(() => console.log('mongoDB connected!'))
+    })
+    // .then(() => console.log('mongoDB connected!'))
     .catch((err) => console.log(err))
   }
 
