@@ -1,0 +1,62 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <title>教学工作量管理系统</title>
+  <link rel="shortcut icon" href="..//img/schoolbadge.png">
+  <link rel="stylesheet" href="../css/reset.css">
+  <link rel="stylesheet" href="../css/index.css">
+</head>
+
+<body>
+  <%- include("./header.html") %>
+    <main>
+      <div class="right-main">
+        <div class="cloak" id='cloak'>
+          <div class="newtimetable" id='newtimetable'>
+            <form class="content" id="content">
+              <p>课程类别：<input type="text" name="type" value="<%- data.type %>" readonly></p>
+              <p>递增值: <input type="text" name="aging" value="<%- data.aging %>"></p>
+              <p>基础值: <input type="text" name="origin" value="<%- data.origin %>"></p>
+              <p><input type="button" value="提交" id="submit"></p>
+              <p><input type="button" value="退出" class='quit' id='quit'></p>
+            </form>
+          </div>
+        </div>
+      </div>
+    </main>
+    <%- include("./footer.html") %>
+    <script>
+      onload = function () {
+        let cloak = this.document.getElementById('cloak')
+        cloak.style.display = "block"
+      }
+
+      let quit = document.getElementById('quit')
+      quit.addEventListener('click', () => {
+        setTimeout(() => {
+          location = '/roots/ks'
+        }, 300)
+        let content = document.getElementById('content')
+        content.classList.add('rotate-out')
+      })
+
+      // 点击提交发送 /timetables put 请求，更新课程表
+      let submit = document.getElementById('submit')
+      submit.addEventListener('click', () => {
+        const content = new FormData(document.getElementById('content'))
+        const ajax = new XMLHttpRequest()
+        ajax.open('put', '/roots/ks', true)
+        ajax.onload = () => {
+          if (ajax.status == 200) {
+            alert(ajax.responseText)
+            location = '/roots/ks'
+          }
+        }
+        ajax.send(content)
+      })
+    </script>
+</body>
+
+</html>

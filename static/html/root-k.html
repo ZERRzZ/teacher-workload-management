@@ -17,10 +17,12 @@
       cursor: pointer;
       transition: all .5s;
     }
+
     .btn:hover {
       box-shadow: none;
       transform: translate(2px, 2px);
     }
+
     .add-k {
       margin-top: 20px;
       padding: 10px 5px;
@@ -30,6 +32,7 @@
       cursor: pointer;
       transition: all .5s;
     }
+
     .add-k:hover {
       background: #eeeeff;
     }
@@ -38,44 +41,58 @@
 
 <body>
   <%- include("./header.html") %>
-  <main>
-    <div class="right-main">
-      <div id="form">
-        <table>
-          <thead>
-            <tr>
-              <th>课程类别</th>
-              <th>班级数量</th>
-              <th>合班系数</th>
-              <th>操作</th>
-            </tr>
-          </thead>
-          <tbody>
-            <% data.forEach((v) => { %>
-            <tr>
-              <td><%= v.type %></td>
-              <td><%= v.class %></td>
-              <td><%= v.k %></td>
-              <td>
-                <input type="button" value="修改" class="btn">
-                <input type="button" value="删除" class="btn">
-              </td>
-            </tr>
-            <% }) %>
-          </tbody>
-        </table>
-        <input type="button" value="添加合班系数" class="add-k">
-        <input type="button" value="返回" id='back' class="add-k">
+    <main>
+      <div class="right-main">
+        <div id="form">
+          <table>
+            <thead>
+              <tr>
+                <th>课程类别</th>
+                <th>递增值</th>
+                <th>基础值</th>
+                <th>操作</th>
+              </tr>
+            </thead>
+            <tbody>
+              <% data.forEach((v)=> { %>
+                <tr>
+                  <td>
+                    <%= v.type %>
+                  </td>
+                  <td>
+                    <%= v.aging %>
+                  </td>
+                  <td>
+                    <%= v.origin %>
+                  </td>
+                  <td>
+                    <input type="button" value="修改" class="btn">
+                    <input type="button" value="删除" class="btn">
+                  </td>
+                </tr>
+                <% }) %>
+            </tbody>
+          </table>
+          <input type="button" value="添加合班系数" id="add" class="add-k">
+          <input type="button" value="返回" id='back' class="add-k">
+        </div>
       </div>
-    </div>
-  </main>
-  <%- include("./footer.html") %>
-  <script>
-    const back = document.getElementById('back')
-    back.addEventListener('click', () => {
-      window.history.back()
-    })
-  </script>
+    </main>
+    <%- include("./footer.html") %>
+      <script>
+        const back = document.getElementById('back')
+        back.addEventListener('click', () => {
+          window.location.assign('/roots')
+        })
+
+        const mods = document.querySelectorAll('input[value="修改"]')
+        mods.forEach((v) => {
+          v.addEventListener('click', (e) => {
+            const type = e.target.parentNode.previousElementSibling.previousElementSibling.previousElementSibling.innerText
+            window.location = `/roots/${type}`
+          })
+        })
+      </script>
 </body>
 
 </html>

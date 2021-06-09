@@ -45,7 +45,7 @@ module.exports = {
   updateOne(req, res, next) {
     let user = req.cookies.user
     let { type, name, cclass, time, number, k, workload, msg } = req.body
-    Model.updateOne(Workload, {user, name}, {type, cclass, time, number, k, workload, msg}).then((data) => {
+    Model.updateOne(Workload, {user, name}, {type, class: cclass, time, number, k, workload, msg}).then((data) => {
       console.log(`更新的工作量：${data}`);
       res.send('更新成功')
       next()

@@ -18,4 +18,10 @@ rootRouter.get('/roots/workloads', [root.findAllWorkload], (req, res) => {
   res.render('root-workload.html', { data: req.workloads })
 })
 
+rootRouter.get('/roots/:type', [root.findOne], (req, res) => {
+  res.render('root-k-update.html', { data: req.k })
+})
+
+rootRouter.put('/roots/ks', [root.updateOne])
+
 module.exports = rootRouter
